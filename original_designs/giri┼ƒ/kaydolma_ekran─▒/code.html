@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Connectify - Login</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      :root {
+        --primary-500: #1380ec;
+        --primary-600: #0f69c3;
+        --secondary-400: #92adc9;
+        --secondary-500: #324d67;
+        --secondary-600: #233648;
+        --secondary-700: #192633;
+        --secondary-800: #111a22;
+        --secondary-900: #0c1218;
+      }
+    </style>
+</head>
+<body class="bg-[var(--secondary-800)]" style='font-family: Inter, "Noto Sans", sans-serif;'>
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[var(--secondary-600)] px-4 sm:px-6 lg:px-10 py-4">
+<div class="flex items-center gap-3">
+<svg class="h-8 w-8 text-white" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+<h1 class="text-white text-xl font-bold">Connectify</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-white/80 hover:text-white text-sm font-medium transition-colors" href="#">Features</a>
+<a class="text-white/80 hover:text-white text-sm font-medium transition-colors" href="#">Pricing</a>
+<a class="text-white/80 hover:text-white text-sm font-medium transition-colors" href="#">Support</a>
+</nav>
+<div class="flex items-center gap-4">
+<a class="hidden sm:inline-flex items-center justify-center rounded-md text-sm font-semibold text-white ring-1 ring-inset ring-white/20 hover:bg-white/5 h-9 px-4 transition-colors" href="#">
+            Sign Up
+          </a>
+<button class="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-[var(--primary-500)] text-white text-sm font-semibold h-9 px-4 hover:bg-[var(--primary-600)] transition-colors">
+            Get Started
+          </button>
+</div>
+</header>
+<main class="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+<div class="w-full max-w-md space-y-8">
+<div class="text-center">
+<h2 class="text-3xl font-extrabold text-white">Welcome back</h2>
+<p class="mt-2 text-sm text-[var(--secondary-400)]">Manage all your social accounts in one place.</p>
+</div>
+<div class="bg-[var(--secondary-700)] shadow-2xl rounded-lg p-8 space-y-6 border border-[var(--secondary-600)]">
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-white/90" for="email">Email address</label>
+<div class="mt-1">
+<input autocomplete="email" class="form-input w-full rounded-md border-[var(--secondary-500)] bg-[var(--secondary-900)] text-white placeholder-[var(--secondary-400)] focus:border-[var(--primary-500)] focus:ring-[var(--primary-500)]" id="email" name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-white/90" for="password">Password</label>
+<div class="mt-1">
+<input autocomplete="current-password" class="form-input w-full rounded-md border-[var(--secondary-500)] bg-[var(--secondary-900)] text-white placeholder-[var(--secondary-400)] focus:border-[var(--primary-500)] focus:ring-[var(--primary-500)]" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<input class="h-4 w-4 rounded border-[var(--secondary-500)] bg-[var(--secondary-900)] text-[var(--primary-500)] focus:ring-[var(--primary-600)]" id="remember-me" name="remember-me" type="checkbox"/>
+<label class="ml-2 block text-sm text-white/90" for="remember-me">Remember me</label>
+</div>
+<div class="text-sm">
+<a class="font-medium text-[var(--primary-500)] hover:text-[var(--primary-600)]" href="#">Forgot your password?</a>
+</div>
+</div>
+<div>
+<button class="group relative flex w-full justify-center rounded-md border border-transparent bg-[var(--primary-500)] py-2 px-4 text-sm font-semibold text-white hover:bg-[var(--primary-600)] focus:outline-none focus:ring-2 focus:ring-[var(--primary-500)] focus:ring-offset-2 focus:ring-offset-[var(--secondary-700)] transition-all duration-300 ease-in-out" type="submit">
+                Log in
+              </button>
+</div>
+</div>
+<p class="text-center text-sm text-[var(--secondary-400)]">
+            Don't have an account?
+            <a class="font-medium text-[var(--primary-500)] hover:text-[var(--primary-600)]" href="#">Sign up</a>
+</p>
+</div>
+</main>
+</div>
+
+</body></html>
