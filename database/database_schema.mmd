@@ -1,0 +1,52 @@
+erDiagram
+    USERS {
+        int user_id PK
+        string username
+        string email
+        string password_hash
+        datetime created_at
+    }
+
+    SOCIAL_ACCOUNTS {
+        int account_id PK
+        int user_id FK
+        string platform
+        string access_token
+        string refresh_token
+        datetime expires_at
+        datetime created_at
+    }
+
+    POSTS {
+        int post_id PK
+        int user_id FK
+        string content
+        datetime scheduled_at
+        string status
+        datetime created_at
+    }
+
+    POST_PLATFORMS {
+        int post_platform_id PK
+        int post_id FK
+        int account_id FK
+        string post_url
+        string status
+    }
+
+    ANALYTICS {
+        int analytics_id PK
+        int account_id FK
+        date date
+        int followers
+        int engagement
+        int reach
+        datetime created_at
+    }
+
+    USERS ||--o{ SOCIAL_ACCOUNTS : has
+    USERS ||--o{ POSTS : creates
+    POSTS ||--o{ POST_PLATFORMS : is_on
+    SOCIAL_ACCOUNTS ||--o{ POST_PLATFORMS : has
+    SOCIAL_ACCOUNTS ||--o{ ANALYTICS : has
+
