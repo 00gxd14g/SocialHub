@@ -21,8 +21,11 @@ from src.routes.seo import seo_bp
 from src.routes.unified_posts import unified_posts_bp
 
 app = Flask(__name__, static_folder=os.path.join(os.path.dirname(__file__), 'static'))
-app.config['SECRET_KEY'] = 'asdf#FGSgvasgf$5$WGT'
-app.config['JWT_SECRET_KEY'] = 'jwt-secret-string'  # Change this in production
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'development-only-secret')
+app.config['JWT_SECRET_KEY'] = os.environ.get(
+    'JWT_SECRET_KEY',
+    app.config['SECRET_KEY'],
+)
 
 # Enable CORS for all routes
 CORS(app)
@@ -40,8 +43,13 @@ app.register_blueprint(ai_content_bp, url_prefix='/api/ai')
 app.register_blueprint(seo_bp, url_prefix='/api/seo')
 app.register_blueprint(unified_posts_bp, url_prefix='/api/unified')
 
-# uncomment if you need to use database
-app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(os.path.dirname(__file__), 'database', 'app.db')}"
+default_database_url = (
+    f"sqlite:///{os.path.join(os.path.dirname(__file__), 'database', 'app.db')}"
+)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
+    'DATABASE_URL',
+    default_database_url,
+)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 with app.app_context():
@@ -65,4 +73,8 @@ def serve(path):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(
+        host='0.0.0.0',
+        port=5000,
+        debug=os.environ.get('FLASK_DEBUG') == '1',
+    )
